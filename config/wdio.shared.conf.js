@@ -12,7 +12,7 @@ exports.config = {
         helpers: [require.resolve('@babel/register')],
     },
     sync: true,
-    logLevel: 'silent',
+    logLevel: 'debug',
     deprecationWarnings: true,
     bail: 0,
     baseUrl: 'http://the-internet.herokuapp.com',
@@ -40,6 +40,15 @@ exports.config = {
                 command: 'appium',
             },
         ],
+        // [
+        //     'chromedriver',
+        //     {
+        //         browserName: 'chrome',
+        //         // chromeDriverArgs: ['--port=9516', '--url-base=\'/\''],
+        //         // logFileName: 'wdio-chromedriver.log', // default
+        //         // outputDir: 'driver-logs', // overwrites the config.outputDir
+        //     },
+        // ],
     ],
     port: 4723,
 };
