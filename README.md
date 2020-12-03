@@ -1,3 +1,104 @@
+# Mobile + desktop tests POC
+
+## Setup POC
+
+### Setup Android stuff
+
+This is not guaranteed to work and this probably installs unnecessary stuff as well:
+
+```
+brew cask install adoptopenjdk8
+brew cask install android-sdk
+
+mkdir .android
+touch ~/.android/repositories.cfg
+sdkmanager --update
+sdkmanager "platform-tools" "platforms;android-29"
+
+# Google Play Services
+sdkmanager "extras;google;google_play_services"
+
+# Google Repository
+sdkmanager "extras;google;m2repository"
+
+# Android Support Registry
+# Required by at least phonegap-plugin-push
+sdkmanager "extras;android;m2repository"
+```
+
+Add these to your `.zshrc`, `.bashrc` or something:
+
+```
+export ANDROID_HOME=/usr/local/share/android-sdk
+export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools
+```
+
+### Setup everything else
+
+```
+# Install `appium-doctor` package globally for the POC
+npm install -g appium-doctor@1
+
+# Install `appium` package globally for the POC
+npm install -g appium@1
+
+# Install Appium Desktop with brew or https://github.com/appium/appium-desktop/releases
+brew cask install appium
+
+# Run `appium-doctor` and ensure there are no errors
+appium-doctor
+
+# Run `appium` and ensure it runs
+appium -v
+
+# Install ChreomeDriver with brew or http://chromedriver.storage.googleapis.com
+brew install chromedriver
+
+# Install stuff
+npm install
+
+# Download WDIO demo APK to apps dir
+wget https://github.com/webdriverio/native-demo-app/releases/download/0.2.1/Android-NativeDemoApp-0.2.1.apk -O apps/Android-NativeDemoApp-0.2.1.apk
+
+# Enable 'USB debugging' on your Android device
+
+# Connect your Android device to your computer
+
+# Test that the Android device is connected
+adb devices
+```
+
+
+## Running POC
+
+WDIO should be able to start the appium service, but we need to give appium some extra params to allow it to install chromedrivers.
+
+If WDIO would start appium, it would automatically pass in this parameter:
+- Explicitly set the `--base-path` for appium: [github](https://github.com/webdriverio/appium-boilerplate/issues/81#issuecomment-723400163)
+
+WDIO will not automatically pass this param to appium, but WDIO could probably be configured somehow to do this:
+- Allow appium to [install ChromeDrivers](https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/web/chromedriver.md#automatic-discovery-of-compatible-chromedriver)
+
+Run appium:
+
+```
+appium --base-path / --allow-insecure chromedriver_autodownload
+```
+
+With the current WDIO configs, WDIO is not able to start both appium and chromedriver services for some reason. So before running the tests, first start chromedriver:
+
+```
+chromedriver
+```
+
+Only the `android.app` config and `login` tests have been modified to work in this POC:
+
+```
+npm run android.app -- --spec login
+```
+
+
+
 # appium-boilerplate
 
 > **NOTE:**
