@@ -24,6 +24,12 @@ describe('WebdriverIO and Appium, when interacting with a login form,', () => {
         LoginScreen.alert.waitForIsShown(false);
     });
 
+    it('should open a page in Chrome', () => {
+        chrome.url('https://sandbox.congrid.com/live');
+        const loginButton = chrome.$('button');
+        loginButton.waitForDisplayed();
+    });
+
     // Try to implement this yourself
     xit('should be able sign up successfully', () => {
 
