@@ -34,6 +34,9 @@
   "homepage": "https://github.com/webdriverio/appium-boilerplate#readme",
   "dependencies": {},
   "devDependencies": {
+    "selenium-webdriver": "*",
+    "chromedriver": "x",
+    "wdio-chromedriver-service": "x",
     "@babel/cli": "^7.10.4",
     "@babel/core": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
