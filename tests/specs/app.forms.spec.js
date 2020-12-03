@@ -21,8 +21,8 @@ describe('WebdriverIO and Appium, interacting with form elements,', () => {
          *  (and thus is NOT starting with the keyboard hidden)
          *  the keyboard is closed here if it is still visible.
          */
-        if (driver.isKeyboardShown()) {
-            driver.hideKeyboard();
+        if (android.isKeyboardShown()) {
+            android.hideKeyboard();
         }
     });
 
@@ -38,7 +38,7 @@ describe('WebdriverIO and Appium, interacting with form elements,', () => {
 
     it('should be able select a value from the select element', () => {
         const valueOne = 'This app is awesome';
-        const valueTwo = 'webdriver.io is awesome';
+        const valueTwo = 'webandroid.io is awesome';
         const valueThree = 'Appium is awesome';
 
         FormScreen.dropDown.click();
@@ -80,7 +80,7 @@ describe('WebdriverIO and Appium, interacting with form elements,', () => {
         FormScreen.alert.waitForIsShown(false);
         FormScreen.inActiveButton.click();
         // Just wait 1 second to be sure it didn't appear
-        driver.pause(1000);
+        android.pause(1000);
         // Now validate it isn't there
         FormScreen.alert.waitForIsShown(false);
     });

@@ -42,8 +42,8 @@ class Carousel extends Gestures {
     verifyNthCardContainsText (nthCard, partialText) {
         this.waitForIsDisplayed();
 
-        const cards = $$(SELECTORS.CARD);
-        driver.waitUntil(
+        const cards = android.$$(SELECTORS.CARD);
+        android.waitUntil(
             () => cards.length > 0,
             {
                 timeout: DEFAULT_TIMEOUT,
@@ -55,7 +55,7 @@ class Carousel extends Gestures {
         const cardText = getTextOfElement(cards[cardNumber]).replace(/(?:\r\n|\r|\n)/g, ' ').toLowerCase();
         const expectedText = partialText.toLowerCase();
 
-        if (driver.isIOS) {
+        if (android.isIOS) {
             return expect(cardText).toContain(expectedText);
         }
 
@@ -113,7 +113,7 @@ class Carousel extends Gestures {
      * </pre>
      */
     getCarouselRectangles () {
-        CAROUSEL_RECTANGLES = CAROUSEL_RECTANGLES || driver.getElementRect($(SELECTORS.CAROUSEL).elementId);
+        CAROUSEL_RECTANGLES = CAROUSEL_RECTANGLES || android.getElementRect(android.$(SELECTORS.CAROUSEL).elementId);
         return CAROUSEL_RECTANGLES;
     }
 }

@@ -18,31 +18,31 @@ class LoginScreen extends AppScreen {
     }
 
     get loginContainerButon () {
-        return $(SELECTORS.LOGIN_CONTAINER_BUTTON);
+        return android.$(SELECTORS.LOGIN_CONTAINER_BUTTON);
     }
 
     get signUpContainerButon () {
-        return $(SELECTORS.SIGN_UP_CONTAINER_BUTTON);
+        return android.$(SELECTORS.SIGN_UP_CONTAINER_BUTTON);
     }
 
     get loginButton () {
-        return $(SELECTORS.LOGIN_BUTTON);
+        return android.$(SELECTORS.LOGIN_BUTTON);
     }
 
     get signUpButton () {
-        return $(SELECTORS.SIGN_UP_BUTTON);
+        return android.$(SELECTORS.SIGN_UP_BUTTON);
     }
 
     get email () {
-        return $(SELECTORS.INPUT);
+        return android.$(SELECTORS.INPUT);
     }
 
     get password () {
-        return $(SELECTORS.PASSWORD);
+        return android.$(SELECTORS.PASSWORD);
     }
 
     get repeatPassword () {
-        return $(SELECTORS.REPEAT_PASSWORD);
+        return android.$(SELECTORS.REPEAT_PASSWORD);
     }
 
     get alert () {

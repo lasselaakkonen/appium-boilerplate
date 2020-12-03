@@ -1,26 +1,26 @@
 export default class TabBar {
     static openHome () {
-        $('~Home').click();
+        android.$('~Home').click();
     }
 
     static openWebView () {
-        $('~WebView').click();
+        android.$('~WebView').click();
     }
 
     static openLogin () {
-        $('~Login').click();
+        android.$('~Login').click();
     }
 
     static openForms () {
-        $('~Forms').click();
+        android.$('~Forms').click();
     }
 
     static openSwipe () {
-        $('~Swipe').click();
+        android.$('~Swipe').click();
     }
 
     static waitForTabBarShown () {
-        $('~Home').waitForDisplayed({
+        android.$('~Home').waitForDisplayed({
             timeout: 20000,
         });
     }

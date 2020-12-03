@@ -21,7 +21,7 @@ export function getTextOfElement (element, isXpath = false) {
     let visualText;
 
     try {
-        if (driver.isAndroid) {
+        if (android.isAndroid) {
             visualText = element.$$(SELECTORS.ANDROID.TEXT).reduce((currentValue, el) => `${currentValue} ${el.getText()}`, '');
         } else {
             const iosElement = isXpath ? element.$$(SELECTORS.IOS.TEXT_ELEMENT) : element;

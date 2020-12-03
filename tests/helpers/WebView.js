@@ -18,7 +18,7 @@ class WebView {
      * The number behind `WEBVIEW` can be any string
      */
     waitForWebViewContextLoaded () {
-        driver.waitUntil(
+        android.waitUntil(
             () => {
                 const currentContexts = this.getCurrentContexts();
 
@@ -38,7 +38,7 @@ class WebView {
      * @param {string} context should be native of webview
      */
     switchToContext (context) {
-        driver.switchContext(this.getCurrentContexts()[context === CONTEXT_REF.WEBVIEW ? 1 : 0]);
+        android.switchContext(this.getCurrentContexts()[context === CONTEXT_REF.WEBVIEW ? 1 : 0]);
     }
 
     /**
@@ -47,15 +47,15 @@ class WebView {
      * @return {object} An object containing the list of all available contexts
      */
     getCurrentContexts () {
-        return driver.getContexts();
+        return android.getContexts();
     }
 
     /**
      * Wait for the document to be full loaded
      */
     waitForDocumentFullyLoaded () {
-        driver.waitUntil(
-            () => driver.execute(() => document.readyState) === DOCUMENT_READY_STATE.COMPLETE,
+        android.waitUntil(
+            () => android.execute(() => document.readyState) === DOCUMENT_READY_STATE.COMPLETE,
             {
                 timeout: 15000,
                 timeoutMsg: 'Website not loaded',

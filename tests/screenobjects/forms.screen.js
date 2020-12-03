@@ -20,19 +20,19 @@ class FormsScreen extends AppScreen {
     }
 
     get input () {
-        return $(SELECTORS.INPUT);
+        return android.$(SELECTORS.INPUT);
     }
 
     get inputTextResult () {
-        return $(SELECTORS.INPUT_TEXT);
+        return android.$(SELECTORS.INPUT_TEXT);
     }
 
     get switch () {
-        return $(SELECTORS.SWITCH);
+        return android.$(SELECTORS.SWITCH);
     }
 
     get switchText () {
-        return $(SELECTORS.SWITCH_TEXT);
+        return android.$(SELECTORS.SWITCH_TEXT);
     }
 
     /**
@@ -42,13 +42,13 @@ class FormsScreen extends AppScreen {
      * @return {boolean}
      */
     isSwitchActive () {
-        const active = driver.isAndroid ? 'ON' : '1';
+        const active = android.isAndroid ? 'ON' : '1';
 
         return this.switch.getText() === active;
     }
 
     get dropDown () {
-        return $(SELECTORS.DROP_DOWN);
+        return android.$(SELECTORS.DROP_DOWN);
     }
 
     /**
@@ -57,7 +57,7 @@ class FormsScreen extends AppScreen {
      * @return {string}
      */
     getDropDownText () {
-        return getTextOfElement($(SELECTORS.DROP_DOWN));
+        return getTextOfElement(android.$(SELECTORS.DROP_DOWN));
     }
 
     get picker () {
@@ -65,11 +65,11 @@ class FormsScreen extends AppScreen {
     }
 
     get activeButton () {
-        return $(SELECTORS.ACTIVE_BUTTON);
+        return android.$(SELECTORS.ACTIVE_BUTTON);
     }
 
     get inActiveButton () {
-        return $(SELECTORS.IN_ACTIVE_BUTTON);
+        return android.$(SELECTORS.IN_ACTIVE_BUTTON);
     }
 
     get alert () {

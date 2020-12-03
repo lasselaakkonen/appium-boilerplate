@@ -13,7 +13,7 @@ class WebViewScreen extends WebView {
      * @param {boolean} isShown
      */
     waitForWebViewIsDisplayedByXpath (isShown = true) {
-        $(SELECTORS.WEB_VIEW_SCREEN).waitForDisplayed({
+        android.$(SELECTORS.WEB_VIEW_SCREEN).waitForDisplayed({
             timeout: 20000,
             reverse: !isShown,
         });

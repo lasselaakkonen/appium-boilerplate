@@ -11,7 +11,7 @@ class Picker {
      * @param {boolean} isShown
      */
     static waitForIsShown (isShown = true) {
-        const selector = driver.isIOS ? SELECTORS.IOS_PICKERWHEEL : SELECTORS.ANDROID_LISTVIEW;
+        const selector = android.isIOS ? SELECTORS.IOS_PICKERWHEEL : SELECTORS.ANDROID_LISTVIEW;
         $(selector).waitForExist({
             timeout: 11000,
             reverse: !isShown,
@@ -25,7 +25,7 @@ class Picker {
      */
     static selectValue (value) {
         this.waitForIsShown(true);
-        if (driver.isIOS) {
+        if (android.isIOS) {
             this._setIosValue(value);
         } else {
             this._setAndroidValue(value);

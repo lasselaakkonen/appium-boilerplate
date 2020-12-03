@@ -102,7 +102,7 @@ class Gestures {
      * </pre>
      */
     static swipeOnPercentage (from, to) {
-        SCREEN_SIZE = SCREEN_SIZE || driver.getWindowRect();
+        SCREEN_SIZE = SCREEN_SIZE || android.getWindowRect();
         const pressOptions = this._getDeviceScreenCoordinates(SCREEN_SIZE, from);
         const moveToScreenCoordinates = this._getDeviceScreenCoordinates(SCREEN_SIZE, to);
         this.swipe(
@@ -125,7 +125,7 @@ class Gestures {
      * </pre>
      */
     static swipe (from, to) {
-        driver.touchPerform([{
+        android.touchPerform([{
             action: 'press',
             options: from,
         }, {
@@ -137,7 +137,7 @@ class Gestures {
         }, {
             action: 'release',
         }]);
-        driver.pause(1000);
+        android.pause(1000);
     }
 
     /**

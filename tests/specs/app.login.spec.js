@@ -13,8 +13,8 @@ describe('WebdriverIO and Appium, when interacting with a login form,', () => {
         LoginScreen.email.setValue('test@webdriver.io');
         LoginScreen.password.setValue('Test1234!');
 
-        if (driver.isKeyboardShown()) {
-            driver.hideKeyboard();
+        if (android.isKeyboardShown()) {
+            android.hideKeyboard();
         }
         LoginScreen.loginButton.click();
         LoginScreen.alert.waitForIsShown();
